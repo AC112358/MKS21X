@@ -1,0 +1,9 @@
+git config --global user.name "username"
+git config --global user.email johndoe@example.com
+git pull repository
+git add filename
+git add -A
+git commit filename
+git commit -A
+git push
+
