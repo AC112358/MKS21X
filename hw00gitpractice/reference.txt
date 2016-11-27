@@ -1,10 +1,9 @@
 git config --global user.name "username" : set git username of person using git
 git config --global user.email johndoe@example.com :set git email of person using git
 git pull repository : save repository locally
-  - must be in repository to call this!
 git add filename : get filename to be tracked by git
 git commit -m "message" : commit changes: save them to repository with a message
 git push : pushes files to github website (remote repository)
 git status : see which files aren't tracked
- - green if added and had been modified
- - red if not tracked and modified
+
+hi
