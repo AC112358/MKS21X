@@ -36,13 +36,13 @@ public class CirculatingBook extends LibraryBook{
 	if (currentHolder == null){
 	    return "book available on shelves";
 	}
-	return getCurrentHolder() + "," + getDueDate();
+	return getCurrentHolder() + ", " + getDueDate();
     }
 
     public String toString(){
 	String add = "";
 	if (currentHolder != null){
-	    add = "," + circulationStatus();
+	    add = ", " + circulationStatus();
 	}
 	return super.toString() + add;
     }

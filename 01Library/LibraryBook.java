@@ -2,7 +2,7 @@ abstract class LibraryBook extends Book implements Comparable<LibraryBook>{
     String callNumber;
 
     public LibraryBook(String a, String t, String i, String c){
-	super(a, t, c);
+	super(a, t, i);
 	setCallNumber(c);
     }
 
@@ -22,6 +22,6 @@ abstract class LibraryBook extends Book implements Comparable<LibraryBook>{
     }
 
     public String toString(){
-	return super.toString() + "," + circulationStatus() + "," + callNumber;
+	return super.toString() + ", " + circulationStatus() + ", " + callNumber;
     }
 }
