@@ -9,7 +9,7 @@ abstract class LibraryBook extends Book implements Comparable<LibraryBook>{
     public String getCallNumber(){
 	return callNumber;
     }
-    public String setCallNumber(String c){
+    public void setCallNumber(String c){
 	callNumber = c;
     }
 
