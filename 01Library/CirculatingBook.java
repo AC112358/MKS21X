@@ -40,10 +40,6 @@ public class CirculatingBook extends LibraryBook{
     }
 
     public String toString(){
-	String add = "";
-	if (currentHolder != null){
-	    add = ", " + circulationStatus();
-	}
-	return super.toString() + add;
+	return super.toString();
     }
 }
