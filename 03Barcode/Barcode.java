@@ -14,7 +14,7 @@ public class Barcode implements Comparable<Barcode>{
       }
       for (int i = 0; i < zip.length(); i++){
 	  if ("0123456789".indexOf(zip.charAt(i)) < 0){
-	  throw new IllegalArgumentException("Zip code must only contain digits");
+	      throw new IllegalArgumentException("Zip code must only contain digits: " + zip.charAt(i));
       }
       }
   _zip = zip;
@@ -40,7 +40,7 @@ public class Barcode implements Comparable<Barcode>{
 	  total += codes[_zip.charAt(i) - '0'];
       }
       total += codes[checkSum()];
-      return total + "|";
+      return "" + _zip + checkSum() + " " + total + "|";
 }
 
 
@@ -52,7 +52,7 @@ public int compareTo(Barcode other){
 
     public static String toCode(String zip){
 	Barcode b = new Barcode(zip);
-	return b.toString();
+	return b.toString().substring(7);
     }
 
     public static String toZip(String barcode){
@@ -77,14 +77,14 @@ public int compareTo(Barcode other){
 	    }
 	    int temp = searchCodes(total);
 	    if (temp == -1){
-		throw new IllegalArgumentException("A portion of barcode doesn't translate to a digit");
+		throw new IllegalArgumentException("A portion of barcode doesn't translate to a digit: " + total);
 	    }
 	    zipcode = zipcode + temp;
 	    totalSum += temp;
 	}
 	int checkSum = zipcode.charAt(zipcode.length()-1) - '0';
 	if (checkSum != (totalSum - checkSum)%10){ //if checkSum > totalSum, zip code cannot be valid so % 10 is fine
-	    throw new IllegalArgumentException("Check digit invalid");
+	    throw new IllegalArgumentException("Check digit invalid: " + checkSum);
 	}
 	return zipcode.substring(0, zipcode.length()-1);
     }
