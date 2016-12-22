@@ -33,30 +33,21 @@ public class Sorts{
     public static void insertionSort(int[] data){
     int index = 1;
     int temp = 0;
-    int temp2 = 0;
     boolean found = false;
     while (index < data.length){
         temp = data[index];
-	System.out.println(temp);
 	found = false;
-        for (int i = index; i > 0; i--){
+        for (int i = index; i >= 0; i--){
 	    if (data[i] < temp && !found && i < data.length - 1){
-		//	System.out.println("Inserting " + temp + " at " + (i+1));
 		data[i+1] = temp;
 		found = true;
-	    }else if (!found){	
+	    }else if (!found && i > 0){	
 		data[i] = data[i-1];
-		//	System.out.println("set " + data[i+1] + " to " + data[i]);
-		printArray(data);
 	    }
         }
 	if (!found){
 	    data[0] = temp;
-	    // System.out.println("put " + temp + " at front");
 	}
-	//	System.out.println("k done");
-        printArray(data);
-	System.out.println();
         index++;
     }
     }
